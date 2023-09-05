@@ -55,13 +55,13 @@ for secret in secrets.items:
 print(secret_with_no_owner)
           
 
-from cert_fetcher1 import *
+#from cert_fetcher1 import *
 
-secretName_to_pod_mapping = get_secret_pod_mapping(pod_list)
+#secretName_to_pod_mapping = get_secret_pod_mapping(pod_list)
 
 #secretName_to_pod_mapping == secret_to_pod_mapping
 
-secret_with_no = get_secret_to_secretValue(secrets,secretName_to_pod_mapping)
+#secret_with_no = get_secret_to_secretValue(secrets,secretName_to_pod_mapping)
 
 
 # Organize secrets based on the component they belong to.
