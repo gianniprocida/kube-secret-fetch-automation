@@ -66,21 +66,21 @@ print(secret_with_no_owner)
 
 # Organize secrets based on the component they belong to.
 
-# base_dir= 'mycertificates'
+base_dir= 'mycertificates'
 
 
 
 
-# for component_name,cert_list in secret_with_no_owner.items():
-#    component_dir = os.path.join(base_dir,component_name)
+for component_name,cert_list in secret_with_no_owner.items():
+    component_dir = os.path.join(base_dir,component_name)
 
-#    if not os.path.exists(component_dir):
-#       os.makedirs(component_dir)
-#       for key,val in cert_list[0].items():
-#          filepath = os.path.join(component_dir,key)
+    if not os.path.exists(component_dir):
+       os.makedirs(component_dir)
+       for key,val in cert_list[0].items():
+          filepath = os.path.join(component_dir,key)
 
-#          with open(filepath,'w') as f:
-#             f.write(val)
+          with open(filepath,'w') as f:
+             f.write(val)
 
 
 
