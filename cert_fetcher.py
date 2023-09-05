@@ -3,9 +3,9 @@ import os
 
 
 # Load the Kubernetes configuration from the default location
-config.load_kube_config("~/.kube/config")
+#config.load_kube_config("~/.kube/config")
 # Load the in-cluster configuration
-#config.load_incluster_config()
+config.load_incluster_config()
 v1 = client.CoreV1Api()
 
 namespace = "kafka"

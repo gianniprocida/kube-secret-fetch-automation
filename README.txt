@@ -3,7 +3,7 @@
 
 # Build the image on the current working directory
 
-docker build -t giprocida/axual-debug:1.0
+docker build -t giprocida/axual-debug:1.0 .
 
 # Create a role resource
 
