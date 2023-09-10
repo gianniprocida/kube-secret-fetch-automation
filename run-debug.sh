@@ -1,3 +1,3 @@
 kubectl create -f my-role.yaml 
 kubectl create -f my-role-binding.yaml
-kubectl create -f my-pod.yaml
+kubectl create -f debug-pod.yaml
