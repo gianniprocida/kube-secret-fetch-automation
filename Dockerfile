@@ -13,8 +13,8 @@ RUN microdnf install -y \
 &&  microdnf clean all
 
 
-RUN curl -L https://github.com/derailed/k9s/releases/download/v0.26.6/k9s_Linux_x86_64.tar.gz \
-    | tar xz --directory /usr/local/bin k9s
+#RUN curl -L https://github.com/derailed/k9s/releases/download/v0.26.6/k9s_Linux_x86_64.tar.gz \
+#    | tar xz --directory /usr/local/bin k9s
 
 RUN echo "Welcome to the Axual Debug container!" > /etc/motd
 RUN echo "cat /etc/motd" >> /etc/profile
@@ -30,7 +30,7 @@ RUN useradd -ms /bin/bash axual
 
 USER axual
 
-WORKDIR /home/axual
+WORKDIR /home/axual/
 
 COPY *.py /home/axual/
 

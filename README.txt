@@ -1,18 +1,24 @@
 
-### How to run it?###
+### How to Run ###
 
-# Build the image on the current working directory
+Follow these steps to build a Docker image, create Kubernetes resources, and run a pod.
+
+
+# Build the docker image
 
 docker build -t giprocida/axual-debug:1.0 .
 
-# Create a role resource
+# Create a role resource named 'pod-listing-role' with specific permission
 
-kubectl create role pod-listing-role --verb=get,list --resource=pods,secrets --namespace=kafka 
---dry-run=client -o yaml > my-role.yaml
-
+kubectl create role pod-listing-role \
+  --verb=get,list \
+  --resource=pods,secrets \
+  --namespace=kafka \
+  --dry-run=client -o yaml > my-role.yaml
 
 
 # Create a rolebinding resource that binds the pod-listing-role to the default ServiceAccount
+
 kubectl create rolebinding pod-listing-binding \
   --role=pod-listing-role \
   --serviceaccount=kafka:default \
@@ -23,9 +29,22 @@ kubectl create rolebinding pod-listing-binding \
 
 # Create a pod using the image giprocida/axual-debug:1.0 
 
-kubectl run my-pod --image=giprocida/axual-debug:1.0 --namespace=kafka --dry-run=client -o yaml > 
-my-pod.yaml
+kubectl run debug-pod \
+  --image=giprocida/axual-debug:1.0 \
+  --namespace=kafka \
+  --dry-run=client -o yaml > debug-pod.yaml
 
-# Add imagePullPolicy: Never in the my-pod.yaml file
+# Modify the pod configuration by adding
 
-# Run the script:bash run-debug.sh
+imagePullPolicy: Never 
+
+within the 'containers' field
+
+# Apply all the newly created resources.
+
+
+# The previously described procedure is automated through the use of the scripts: create-resources.sh and run-debug.sh.
+
+# Run the script create-resource.sh to create all the necessary resources
+# Run the script run-debug.sh to apply all the newly created resources:
+
