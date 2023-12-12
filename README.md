@@ -1,13 +1,10 @@
+### How to Run it ###
 
 Let's create a pod and authorizing it to access secrets from the Kafka namespace 
 (where the axual platform lives). The process involves generating a directory structure 
 under 'mycertificates' for each component and storing the secret data in files within 
 their respective directories. Please note, this is solely for educational purposes to explore the functionality of the 
 Kubernetes library in Python.
-
-
-
-### How to Run it ###
 
 Follow these steps:
 
