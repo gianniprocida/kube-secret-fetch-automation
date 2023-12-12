@@ -45,7 +45,7 @@ kubectl run debug-pod \
   --namespace=kafka \
   --dry-run=client -o yaml -- sleep 4000 > debug-pod.yaml
 
-# Modify the pod configuration by adding
+## Modify the pod configuration by adding
 
 imagePullPolicy: Never 
 
