@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: debug-pod
+  name: debug-pod
+  namespace: kafka
+spec:
+  volumes:
+    - name: pv-storage
+      persistentVolumeClaim:
+        claimName: pv-claim
+  containers:
+  - image: giprocida/axual-debug:1.0
+    imagePullPolicy: Never 
+    name: debug-pod
+    volumeMounts:
+     - name: pv-storage
+       mountPath: /usr/local/bin
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
